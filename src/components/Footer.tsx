@@ -8,12 +8,6 @@ export default function Footer() {
         <div className="footer__info">
           <p className="footer__brand">bitSpace</p>
           <p>サービス名 bitSalon</p>
-          <p>
-            連絡先{' '}
-            <a className="footer__link" href="mailto:bitsalon@bitspace.jp">
-              bitsalon@bitspace.jp
-            </a>
-          </p>
         </div>
         <div className="footer__meta">
           <Link className="footer__link" to="/tokushoho">

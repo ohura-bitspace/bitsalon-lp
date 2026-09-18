@@ -28,8 +28,7 @@
   gap: var(--space-4);
 }
 
-.cta__panel .btn--primary,
-.cta__panel .btn--secondary {
+.cta__panel .btn--primary {
   background: var(--surface);
   color: var(--primary);
   border-color: var(--surface);

@@ -14,9 +14,6 @@ export default function CtaSection() {
             <a className="btn btn--primary cta__button" href="[LINE_OA_URL]">
               LINEで相談する
             </a>
-            <a className="btn btn--secondary cta__button" href="mailto:bitsalon@bitspace.jp">
-              メールで問い合わせる
-            </a>
           </div>
         </div>
       </div>
