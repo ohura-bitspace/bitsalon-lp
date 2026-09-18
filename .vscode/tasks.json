@@ -1,0 +1,42 @@
+{
+  // VS Code のタスク定義。npm スクリプトをここに集約し、git で管理する。
+  // 端末へ手で打ち込む運用をやめ、同じ手順を誰でも同じ順序で実行できるようにする。
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "1. 依存の取得 (npm install)",
+      "detail": "node_modules を作る。クローン直後とパッケージ更新後に実行する",
+      "type": "shell",
+      "command": "npm install",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "2. 開発起動 (npm run dev)",
+      "detail": "Vite の開発サーバを起動する。保存すると即座に画面へ反映される",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "3. ビルド (npm run build)",
+      "detail": "型チェックのうえ dist/ を作る。postbuild で 404.html も複製される",
+      "type": "shell",
+      "command": "npm run build",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": ["$tsc"],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "4. ビルド結果の確認 (npm run preview)",
+      "detail": "dist/ を本番と同じ /bitsalon-lp/ 配下で配信する。先に 3 を実行しておく",
+      "type": "shell",
+      "command": "npm run preview",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    }
+  ]
+}

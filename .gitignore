@@ -8,6 +8,8 @@ logs
 npm-debug.log*
 
 .DS_Store
+# ビルド手順は .vscode/tasks.json で共有する（意図して追跡する）。
 .vscode/*
 !.vscode/extensions.json
+!.vscode/tasks.json
 .idea
