@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIT SALON サービス資料</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --mint: #7FDCC4; --mint-light: #B8F0E3; --mint-pale: #EAFAF5; --mint-dark: #4DBBA3;
+    --charcoal: #2C3E50; --slate: #5A6C7D; --cream: #FDFBF7;
+    --white: #FFFFFF; --gold: #C9A227;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans JP',sans-serif; background:#e8e8e8; color:var(--charcoal); line-height:1.6; }
+
+.page {
+    width:210mm; min-height:297mm; margin:20px auto; background:var(--white);
+    box-shadow:0 20px 60px rgba(0,0,0,0.12); overflow:hidden;
+    display:flex; flex-direction:column; position:relative;
+}
+.page-body { padding:12mm 14mm 18mm; flex-grow:1; display:flex; flex-direction:column; gap:14px; }
+.page-footer {
+    position:absolute; bottom:0; left:0; right:0;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:6px 14mm; font-size:9.5px; color:var(--slate);
+    border-top:1px solid #f0f0f0; background:var(--white);
+}
+.page-footer .brand { font-family:'Playfair Display',serif; letter-spacing:1.5px; color:var(--mint-dark); font-weight:600; }
+
+/* ===== 共通パーツ ===== */
+.section-head { display:flex; align-items:center; gap:10px; margin-bottom:2px; }
+.section-num {
+    font-family:'Playfair Display',serif; font-size:26px; font-weight:700;
+    color:var(--mint); line-height:1;
+}
+.section-title { font-size:17px; font-weight:700; letter-spacing:1px; }
+.section-sub { font-size:11px; color:var(--slate); margin-left:auto; text-align:right; }
+
+.lead { font-size:12px; color:var(--slate); }
+
+.cards { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+.cards.cols-3 { grid-template-columns:repeat(3,1fr); }
+.card {
+    background:var(--white); border:1.5px solid #eee; border-radius:10px;
+    padding:10px 12px;
+}
+.card .ic { font-size:20px; margin-bottom:4px; }
+.card h4 { font-size:12.5px; font-weight:700; margin-bottom:3px; }
+.card h4 .badge {
+    display:inline-block; font-size:9px; background:var(--mint-light); color:var(--mint-dark);
+    border-radius:3px; padding:1px 5px; margin-left:5px; font-weight:500; vertical-align:middle;
+}
+.card p { font-size:10.5px; color:var(--slate); line-height:1.55; }
+
+.tip {
+    background:var(--cream); border-left:4px solid var(--mint-dark); border-radius:6px;
+    padding:8px 12px; font-size:11px; line-height:1.6;
+}
+.tip b { color:var(--mint-dark); }
+
+/* ===== 表紙 ===== */
+.cover-header {
+    background:linear-gradient(135deg,var(--mint) 0%,var(--mint-dark) 100%);
+    padding:34px 40px 30px; text-align:center; color:var(--white);
+}
+.cover-header .doc-type {
+    display:inline-block; border:1px solid rgba(255,255,255,0.7); border-radius:50px;
+    font-size:11px; padding:3px 16px; letter-spacing:2px; margin-bottom:14px;
+}
+.cover-header .logo { font-family:'Playfair Display',serif; font-size:52px; font-weight:700; letter-spacing:5px; line-height:1.15; }
+.cover-header .tagline { font-size:14px; font-weight:300; margin-top:8px; opacity:0.95; }
+
+.cover-catch { text-align:center; padding:6px 0 0; }
+.cover-catch h2 { font-size:23px; font-weight:700; letter-spacing:1px; }
+.cover-catch h2 em { font-style:normal; color:var(--mint-dark); }
+.cover-catch p { font-size:12px; color:var(--slate); margin-top:6px; }
+
+.pain-list { display:grid; grid-template-columns:repeat(2,1fr); gap:7px; }
+.pain {
+    background:var(--cream); border:1px solid #f0ece2; border-radius:8px;
+    padding:8px 12px; font-size:11.5px; display:flex; gap:8px; align-items:flex-start;
+}
+.pain .q { color:var(--gold); font-weight:700; flex-shrink:0; }
+
+.answer-band {
+    background:linear-gradient(135deg,var(--mint-pale),var(--mint-light));
+    border-radius:12px; padding:14px 18px; text-align:center;
+}
+.answer-band .head { font-size:15px; font-weight:700; margin-bottom:6px; }
+.answer-band .head b { color:var(--mint-dark); }
+.hybrid { display:flex; justify-content:center; align-items:stretch; gap:10px; margin-top:8px; }
+.hybrid .box {
+    background:var(--white); border-radius:10px; padding:8px 14px; font-size:11px;
+    min-width:190px; text-align:center;
+}
+.hybrid .box .who { font-weight:700; font-size:12.5px; margin-bottom:2px; }
+.hybrid .box .how { color:var(--slate); }
+.hybrid .plus { align-self:center; font-size:18px; color:var(--mint-dark); font-weight:700; }
+
+.value-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; }
+.value-card {
+    border:1.5px solid var(--mint-light); border-radius:12px; padding:13px 12px; text-align:center;
+}
+.value-card .ic { font-size:26px; margin-bottom:6px; }
+.value-card h4 { font-size:13px; font-weight:700; margin-bottom:5px; line-height:1.4; }
+.value-card p { font-size:10.5px; color:var(--slate); text-align:left; }
+
+.spec-strip {
+    display:flex; justify-content:center; gap:20px; flex-wrap:wrap;
+    font-size:10.5px; color:var(--slate); border-top:1px solid #f0f0f0; padding-top:10px;
+}
+.spec-strip b { color:var(--charcoal); }
+
+/* ===== 中面ヘッダー ===== */
+.inner-header {
+    background:linear-gradient(135deg,var(--mint) 0%,var(--mint-dark) 100%);
+    padding:10px 14mm; display:flex; align-items:baseline; gap:14px; color:var(--white);
+}
+.inner-header .logo { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; letter-spacing:2px; }
+.inner-header .chapter { font-size:12.5px; font-weight:500; opacity:0.95; }
+
+/* ===== 予約フロー ===== */
+.flow { display:flex; align-items:stretch; gap:6px; }
+.flow-step {
+    flex:1; background:var(--mint-pale); border-radius:10px; padding:9px 8px; text-align:center; position:relative;
+}
+.flow-step .no {
+    display:inline-flex; width:20px; height:20px; border-radius:50%; background:var(--mint-dark);
+    color:#fff; font-size:11px; font-weight:700; align-items:center; justify-content:center; margin-bottom:4px;
+}
+.flow-step h5 { font-size:11.5px; font-weight:700; margin-bottom:2px; }
+.flow-step p { font-size:9.5px; color:var(--slate); line-height:1.45; }
+.flow-arrow { align-self:center; color:var(--mint-dark); font-size:14px; font-weight:700; flex-shrink:0; }
+
+/* ===== スクリーンショット ===== */
+.shot { border-radius:10px; overflow:hidden; border:1.5px solid #eee; }
+.shot-label { background:var(--mint-light); padding:4px 12px; font-size:10.5px; font-weight:600; color:var(--mint-dark); }
+.shot img { width:100%; display:block; max-height:300px; object-fit:contain; object-position:top center; background:#f7f9fc; }
+
+/* ===== プラン比較表 ===== */
+table.plans { width:100%; border-collapse:collapse; font-size:10.5px; }
+table.plans th, table.plans td { border:1px solid #e8e8e8; padding:5px 8px; }
+table.plans thead th { background:var(--mint-dark); color:#fff; font-weight:600; text-align:center; }
+table.plans thead th:first-child { background:var(--charcoal); text-align:left; }
+table.plans thead .price { font-family:'Playfair Display',serif; font-size:15px; display:block; }
+table.plans thead .unit { font-size:9px; font-weight:300; }
+table.plans tbody td:first-child { text-align:left; font-weight:500; }
+table.plans tbody td { text-align:center; }
+table.plans tbody tr:nth-child(even) { background:var(--cream); }
+table.plans .ok { color:var(--mint-dark); font-weight:700; }
+table.plans .no { color:#ccc; }
+table.plans .group td {
+    background:var(--mint-pale) !important; font-size:9.5px; font-weight:700;
+    color:var(--mint-dark); letter-spacing:1px; padding:3px 8px;
+}
+.plan-notes { font-size:9.5px; color:var(--slate); line-height:1.6; }
+
+.monitor-band {
+    background:linear-gradient(135deg,var(--mint-light),var(--mint));
+    border-radius:12px; padding:11px 16px; text-align:center;
+}
+.monitor-band .h { font-size:14px; font-weight:700; color:var(--charcoal); }
+.monitor-band .h .big { font-family:'Playfair Display',serif; font-size:20px; }
+.monitor-band p { font-size:11px; color:var(--charcoal); opacity:0.85; margin-top:2px; }
+
+/* ===== 紹介制度 ===== */
+.referral-inner { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.referral-highlight {
+    background:linear-gradient(to right,var(--cream),var(--mint-light));
+    padding:9px 12px; border-radius:8px; border-left:4px solid var(--mint-dark);
+    font-size:11px; line-height:1.65;
+}
+.example-box { background:var(--white); padding:8px 12px; border-radius:8px; border:1.5px dashed var(--mint); }
+.calc-label { font-weight:700; margin-bottom:4px; font-size:10.5px; }
+.calc-row { display:flex; justify-content:space-between; font-size:10.5px; padding:1.5px 0; }
+.calc-row.total { border-top:1.5px solid var(--mint); padding-top:3px; margin-top:3px; font-weight:700; font-size:12.5px; }
+
+/* ===== 導入の流れ・FAQ ===== */
+.steps { display:flex; gap:6px; }
+.step { flex:1; text-align:center; background:var(--cream); border-radius:10px; padding:8px 6px; }
+.step .no {
+    display:inline-flex; width:22px; height:22px; border-radius:50%;
+    background:var(--charcoal); color:#fff; font-size:11.5px; font-weight:700;
+    align-items:center; justify-content:center; margin-bottom:4px;
+}
+.step h5 { font-size:11px; font-weight:700; margin-bottom:2px; }
+.step p { font-size:9.5px; color:var(--slate); line-height:1.45; }
+
+.faq { display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+.faq-item { border:1px solid #eee; border-radius:8px; padding:7px 10px; }
+.faq-item .q { font-size:10.5px; font-weight:700; margin-bottom:2px; }
+.faq-item .q::before { content:"Q. "; color:var(--mint-dark); }
+.faq-item .a { font-size:10px; color:var(--slate); line-height:1.5; }
+.faq-item .a::before { content:"A. "; color:var(--gold); font-weight:700; }
+
+/* ===== CTA ===== */
+.cta { background:var(--charcoal); padding:14px 40px; text-align:center; color:var(--white); margin-top:auto; }
+.cta-title { font-size:16px; font-weight:700; margin-bottom:6px; }
+.contact-info { display:flex; justify-content:center; gap:22px; flex-wrap:wrap; }
+.contact-item { display:flex; align-items:center; gap:6px; font-size:13px; }
+
+@media print {
+    body { background:white; }
+    .page { margin:0; box-shadow:none; width:100%; min-height:297mm; page-break-after:always; }
+    .page:last-child { page-break-after:auto; }
+    .cover-header,.inner-header,.answer-band,.monitor-band,.cta,.referral-highlight,
+    .flow-step,.step,.shot-label,.tip,.pain,.value-card,
+    table.plans thead th,table.plans .group td,table.plans tbody tr:nth-child(even)
+    { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    @page { size:A4; margin:0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PAGE 1 : 表紙・コンセプト -->
+<!-- ============================================================ -->
+<div class="page">
+    <div class="cover-header">
+        <div class="doc-type">SERVICE GUIDE</div>
+        <div class="logo">BIT SALON</div>
+        <div class="tagline">小規模サロン向け LINE予約・管理システム　サービス資料</div>
+    </div>
+
+    <div class="page-body">
+
+        <div class="cover-catch">
+            <h2>常連さまの予約を、<em>LINEひとつ</em>で。</h2>
+            <p>予約受付から顧客カルテ・会計・売上分析まで。個人サロンの毎日を、1つのシステムにまとめました。</p>
+        </div>
+
+        <div>
+            <div class="section-head">
+                <div class="section-title">こんなお悩み、ありませんか？</div>
+            </div>
+            <div class="pain-list">
+                <div class="pain"><span class="q">？</span>常連のお客様までクーポンサイト経由で予約され、掲載料・手数料がかさむ</div>
+                <div class="pain"><span class="q">？</span>施術中の電話・DM対応に追われて、予約の取りこぼしがある</div>
+                <div class="pain"><span class="q">？</span>顧客情報や売上をノート・Excelで管理していて、振り返りができない</div>
+                <div class="pain"><span class="q">？</span>前日のリマインド連絡を1件ずつ手作業で送っている</div>
+            </div>
+        </div>
+
+        <div class="answer-band">
+            <div class="head">BIT SALONの答え：<b>ホットペッパービューティーとの両立運用</b></div>
+            <div class="hybrid">
+                <div class="box">
+                    <div class="who">新規のお客様</div>
+                    <div class="how">HPBの低価格プランで集客</div>
+                </div>
+                <div class="plus">＋</div>
+                <div class="box">
+                    <div class="who">常連のお客様</div>
+                    <div class="how">BIT SALONのLINE予約へ誘導</div>
+                </div>
+            </div>
+            <p style="font-size:10.5px; margin-top:8px; opacity:0.85;">HPBの予約はBIT SALONの予約表に自動で取り込み。ダブルブッキングの心配なく併用できます（プロプラン）。</p>
+        </div>
+
+        <div>
+            <div class="section-head">
+                <div class="section-title">選ばれる3つの理由</div>
+            </div>
+            <div class="value-cards">
+                <div class="value-card">
+                    <div class="ic">📱</div>
+                    <h4>LINEで完結する<br>予約体験</h4>
+                    <p>お客様は使い慣れたLINEから数タップで予約完了。専用アプリのインストールも会員登録も不要だから、年齢を問わず使えます。</p>
+                </div>
+                <div class="value-card">
+                    <div class="ic">📊</div>
+                    <h4>経営が「見える」<br>売上レポート</h4>
+                    <p>売上推移・客単価・来店回数・客層をグラフで自動集計。会計を登録するだけで、感覚ではなく数字で経営判断ができます。</p>
+                </div>
+                <div class="value-card">
+                    <div class="ic">💰</div>
+                    <h4>初期費用0円<br>契約の縛りなし</h4>
+                    <p>月額3,300円（税込）から。初期費用・解約金なしの月単位契約なので、小規模サロンでも安心して始められます。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="spec-strip">
+            <span>💻 <b>スマホ・PCのブラウザだけ</b>で利用OK</span>
+            <span>🔔 新規予約は<b>スマホにプッシュ通知</b></span>
+            <span>🏪 <b>複数店舗</b>の管理にも対応</span>
+        </div>
+
+    </div>
+
+    <div class="page-footer"><span class="brand">BIT SALON</span><span>サービス資料　1 / 4</span></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 2 : お客様側の機能 -->
+<!-- ============================================================ -->
+<div class="page">
+    <div class="inner-header">
+        <div class="logo">BIT SALON</div>
+        <div class="chapter">お客様側の機能 — 予約はぜんぶLINEの中で</div>
+    </div>
+
+    <div class="page-body">
+
+        <div class="section-head">
+            <div class="section-num">01</div>
+            <div class="section-title">お客様の予約体験</div>
+            <div class="section-sub">アプリ不要・会員登録不要・パスワード不要</div>
+        </div>
+        <p class="lead">お客様はLINEのリッチメニュー、またはサロンのホームページから予約ページを開くだけ。LINEログインで本人確認が済むため、面倒な入力は一切ありません。</p>
+
+        <div class="flow">
+            <div class="flow-step">
+                <div class="no">1</div>
+                <h5>LINEから開く</h5>
+                <p>リッチメニューやサロンHPの予約ボタンをタップ</p>
+            </div>
+            <div class="flow-arrow">▶</div>
+            <div class="flow-step">
+                <div class="no">2</div>
+                <h5>メニュー選択</h5>
+                <p>複数メニューの組み合わせもOK。回数券の利用もここで選択</p>
+            </div>
+            <div class="flow-arrow">▶</div>
+            <div class="flow-step">
+                <div class="no">3</div>
+                <h5>日時・スタッフ選択</h5>
+                <p>空き状況をカレンダーで確認。指名料も自動で計算</p>
+            </div>
+            <div class="flow-arrow">▶</div>
+            <div class="flow-step">
+                <div class="no">4</div>
+                <h5>確認して完了</h5>
+                <p>内容とお支払い方法を確認して予約確定</p>
+            </div>
+        </div>
+
+        <div class="section-head" style="margin-top:6px;">
+            <div class="section-num">02</div>
+            <div class="section-title">予約のその先まで、LINEでつながる</div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="ic">🔔</div>
+                <h4>リマインダー自動配信<span class="badge">プロ</span></h4>
+                <p>前日・当日の指定時刻に、LINEで来店リマインドを自動送信。無断キャンセル・うっかり忘れを減らします。送信の有無・時刻はサロンごとに設定できます。</p>
+            </div>
+            <div class="card">
+                <div class="ic">📋</div>
+                <h4>予約履歴・オンラインキャンセル</h4>
+                <p>お客様は自分の予約履歴をいつでも確認でき、キャンセルもオンラインで完結。営業時間外の「キャンセルの電話がつながらない」ストレスをなくします。</p>
+            </div>
+            <div class="card">
+                <div class="ic">🎫</div>
+                <h4>回数券（前売りチケット）<span class="badge">プロ</span></h4>
+                <p>脱毛・エステなど回数通いのメニューに。お客様は保有している回数券を予約時に選ぶだけで、残り回数も画面ですぐ確認。キャンセル時は残回数が自動で戻ります。</p>
+            </div>
+            <div class="card">
+                <div class="ic">💬</div>
+                <h4>サロンとの1:1メッセージ<span class="badge">プロ</span></h4>
+                <p>予約の相談や施術後のフォローをアプリ内メッセージでやり取り。個人のLINEアカウントを教える必要はありません。</p>
+            </div>
+        </div>
+
+        <div class="section-head" style="margin-top:6px;">
+            <div class="section-num">03</div>
+            <div class="section-title">サロンホームページも、これひとつ</div>
+            <div class="section-sub">スタンダードプラン以上</div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="ic">🌐</div>
+                <h4>予約ページ一体型のサロンHP</h4>
+                <p>写真・メニュー・スタッフ紹介・営業時間・アクセスを載せたサロン紹介ページを、管理画面からノーコードで編集して即公開。HP制作費・保守費は不要です。</p>
+            </div>
+            <div class="card">
+                <div class="ic">🎨</div>
+                <h4>カラーテーマでお店らしく</h4>
+                <p>HPのカラーテーマを選んで、サロンの雰囲気に合わせたデザインに。掲載内容の変更もその場で反映されるので、キャンペーン告知もスピーディー。</p>
+            </div>
+        </div>
+
+        <div class="tip">
+            <b>💡 LINEミニアプリ対応：</b>予約ページはLINEミニアプリ（LIFF）としても動作します。リッチメニューから遷移すればLINEの中だけで予約が完結し、ブラウザに切り替わることもありません。
+        </div>
+
+    </div>
+
+    <div class="page-footer"><span class="brand">BIT SALON</span><span>サービス資料　2 / 4</span></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 3 : 管理側の機能 -->
+<!-- ============================================================ -->
+<div class="page">
+    <div class="inner-header">
+        <div class="logo">BIT SALON</div>
+        <div class="chapter">サロン側の機能 — 予約・カルテ・会計・分析をひとつに</div>
+    </div>
+
+    <div class="page-body">
+
+        <div class="section-head">
+            <div class="section-num">04</div>
+            <div class="section-title">日々の運営を支える管理画面</div>
+            <div class="section-sub">PC・スマホ両対応。外出先からでも操作できます</div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="ic">📅</div>
+                <h4>予約表（カレンダー）</h4>
+                <p>週・日単位のカレンダーで予約を一元管理。空き枠をタップして電話予約もその場で登録できます。HPB経由の予約も自動で取り込まれ、ダブルブッキングを防止（プロプラン）。</p>
+            </div>
+            <div class="card">
+                <div class="ic">🗂️</div>
+                <h4>顧客カルテ</h4>
+                <p>来店履歴・施術メモ・回数券の保有状況・来店傾向グラフを顧客ごとに1画面で把握。次回の接客の質が変わります。</p>
+            </div>
+            <div class="card">
+                <div class="ic">💴</div>
+                <h4>会計登録 → 売上に自動反映</h4>
+                <p>施術後にお支払い方法・指名料・回数券の消化を記録するだけで、売上レポートへ自動集計。予約がキャンセルになれば売上からも自動で除外され、数字のズレが起きません。</p>
+            </div>
+            <div class="card">
+                <div class="ic">🔔</div>
+                <h4>新規予約をスマホに通知</h4>
+                <p>お客様が予約すると、スマホにプッシュ通知が届きます（PWA対応・アプリインストール不要）。施術中でも予約を見逃しません。</p>
+            </div>
+            <div class="card">
+                <div class="ic">💬</div>
+                <h4>メッセージ配信<span class="badge">プロ</span></h4>
+                <p>顧客ごとの1:1チャットに加え、全顧客への一斉配信にも対応。キャンペーンや臨時休業のお知らせを一度に届けられます。</p>
+            </div>
+            <div class="card">
+                <div class="ic">🎫</div>
+                <h4>回数券の作成・販売<span class="badge">プロ</span></h4>
+                <p>回数券プランを自由に作成し、店頭でそのまま販売。販売時に売上へ一括計上され、消化状況も自動で管理されます。前売りでキャッシュフローも安定。</p>
+            </div>
+            <div class="card">
+                <div class="ic">👥</div>
+                <h4>スタッフ管理・指名料</h4>
+                <p>スタッフごとの登録・表示管理と、スタッフ単位の指名料設定に対応。指名料は予約・会計に自動で反映されます。</p>
+            </div>
+            <div class="card">
+                <div class="ic">🏪</div>
+                <h4>マルチ店舗管理<span class="badge">ビジネス</span></h4>
+                <p>複数店舗を1つのアカウントで管理。サイドバーからワンタップで店舗を切り替えられます。多店舗展開中のオーナー様に。</p>
+            </div>
+        </div>
+
+        <div class="section-head" style="margin-top:4px;">
+            <div class="section-num">05</div>
+            <div class="section-title">売上・来店レポート</div>
+            <div class="section-sub">簡易版：スタンダード〜 / 詳細版：プロ〜</div>
+        </div>
+        <p class="lead">実績と予定を分けた売上推移、客単価帯の分布、来店回数（初回〜10回以上）、性別・初回/リピート構成、平均単価の推移まで。日々の会計データから自動で描かれます。</p>
+
+        <div class="shot">
+            <div class="shot-label">📊 売上レポート画面イメージ</div>
+            <img src="bit-salon-report.png" alt="売上レポート画面" onerror="this.closest('.shot').style.display='none'">
+        </div>
+
+        <div class="tip">
+            <b>🔒 安心のマルチテナント設計：</b>LINEチャネル・データはサロンごとに完全に独立。JWT認証で顧客・管理者のアクセスを分離し、他サロンの情報に触れられない設計です。
+        </div>
+
+    </div>
+
+    <div class="page-footer"><span class="brand">BIT SALON</span><span>サービス資料　3 / 4</span></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 4 : 料金プラン・導入の流れ -->
+<!-- ============================================================ -->
+<div class="page">
+    <div class="inner-header">
+        <div class="logo">BIT SALON</div>
+        <div class="chapter">料金プラン・ご導入の流れ</div>
+    </div>
+
+    <div class="page-body">
+
+        <div class="section-head">
+            <div class="section-num">06</div>
+            <div class="section-title">料金プラン</div>
+            <div class="section-sub">全プラン共通：初期費用0円・契約期間の縛りなし</div>
+        </div>
+
+        <table class="plans">
+            <thead>
+                <tr>
+                    <th style="width:37%;">機能</th>
+                    <th>エントリー<span class="price">¥3,300</span><span class="unit">/ 月（税込）</span></th>
+                    <th>スタンダード<span class="price">¥5,500</span><span class="unit">/ 月（税込）</span></th>
+                    <th>プロ<span class="price">¥9,900</span><span class="unit">/ 月（税込）</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="group"><td colspan="4">基本機能</td></tr>
+                <tr><td>LINE予約受付・予約表（カレンダー）</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+                <tr><td>顧客カルテ・会計登録</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+                <tr><td>新規予約のプッシュ通知</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+                <tr class="group"><td colspan="4">集客・運営</td></tr>
+                <tr><td>メニュー管理（登録・並べ替え）</td><td class="no">—</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+                <tr><td>スタッフ管理・指名料設定</td><td class="no">—</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+                <tr><td>サロンHPの作成・公開</td><td class="no">—</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+                <tr><td>売上レポート（簡易）</td><td class="no">—</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+                <tr class="group"><td colspan="4">リピート強化・分析</td></tr>
+                <tr><td>売上レポート（詳細：単価帯・来店回数・客層）</td><td class="no">—</td><td class="no">—</td><td class="ok">✓</td></tr>
+                <tr><td>メッセージ（1:1チャット・一斉配信）</td><td class="no">—</td><td class="no">—</td><td class="ok">✓</td></tr>
+                <tr><td>LINEリマインダー自動配信（前日・当日）</td><td class="no">—</td><td class="no">—</td><td class="ok">✓</td></tr>
+                <tr><td>回数券（作成・販売・消化管理）</td><td class="no">—</td><td class="no">—</td><td class="ok">✓</td></tr>
+                <tr><td>HPB予約の自動取り込み</td><td class="no">—</td><td class="no">—</td><td class="ok">✓</td></tr>
+            </tbody>
+        </table>
+        <div class="plan-notes">
+            ※ 複数店舗を管理できる<b>ビジネスプラン</b>（スタンダード／プロ相当＋マルチ店舗管理）もございます。料金はお問い合わせください。<br>
+            ※ お支払いはクレジットカード（Stripe決済）に対応。プラン変更は管理画面からいつでも行えます。
+        </div>
+
+        <div class="monitor-band">
+            <div class="h">🎉 モニター店舗募集中 — プロプランの全機能を <span class="big">月額5,500円</span>（税込）で</div>
+            <p>導入時の初期設定・LINE連携もサポートします。まずはお気軽にご相談ください。</p>
+        </div>
+
+        <div>
+            <div class="section-head">
+                <div class="section-title">お得な紹介制度（モニター店舗限定）</div>
+            </div>
+            <div class="referral-inner">
+                <div class="referral-highlight">
+                    <strong>紹介すればするほど、月額が安くなる！</strong><br>
+                    1件紹介で月額1,500円割引（紹介先がスタンダード契約以上の場合）。割引額が利用額を超えた分は<b>「現金報酬」</b>として毎月お支払いします。
+                </div>
+                <div class="example-box">
+                    <div class="calc-label">例：モニター5,500円で5件紹介の場合</div>
+                    <div class="calc-row"><span>紹介割引（1,500円 × 5件）</span><span style="color:var(--mint-dark);font-weight:600;">−7,500円</span></div>
+                    <div class="calc-row"><span>月額利用料（モニター価格）</span><span style="font-weight:600;">5,500円</span></div>
+                    <div class="calc-row total"><span>実質の月額負担額</span><span style="color:var(--gold);">0円 <small style="font-size:10px">(+2,000円の収入)</small></span></div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="section-head">
+                <div class="section-title">ご導入の流れ</div>
+            </div>
+            <div class="steps">
+                <div class="step"><div class="no">1</div><h5>無料相談・デモ</h5><p>実際の画面をご覧いただきながら、運用イメージをご説明します</p></div>
+                <div class="step"><div class="no">2</div><h5>お申し込み</h5><p>プランを選んでお申し込み。契約期間の縛りはありません</p></div>
+                <div class="step"><div class="no">3</div><h5>初期設定サポート</h5><p>メニュー登録・LINE連携・HPの設定を一緒に進めます</p></div>
+                <div class="step"><div class="no">4</div><h5>運用スタート</h5><p>お客様への告知用に、LINE誘導のご案内もサポートします</p></div>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-item">
+                <div class="q">スマホだけで使えますか？</div>
+                <div class="a">はい。管理画面はスマホに最適化されており、予約表の確認から会計・レポートまでスマホで完結します。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">お客様に専用アプリは必要ですか？</div>
+                <div class="a">不要です。お客様は普段お使いのLINEとブラウザだけで予約できます。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">ホットペッパービューティーと併用できますか？</div>
+                <div class="a">できます。プロプランならHPBの予約が自動でBIT SALONの予約表に反映され、二重管理が不要です。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">解約したいときは？</div>
+                <div class="a">月単位でいつでも解約できます。解約金・違約金は一切ありません。</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cta">
+        <div class="cta-title">まずは無料相談から</div>
+        <div class="contact-info">
+            <div class="contact-item"><span>📞</span> 090-3664-9800</div>
+            <div class="contact-item"><span>✉️</span> ohura@bitspace.jp</div>
+            <div class="contact-item"><span>🌐</span> www.bitspace.jp</div>
+        </div>
+    </div>
+
+    <div class="page-footer" style="position:static; border-top:none;"><span class="brand">BIT SALON</span><span>サービス資料　4 / 4</span></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+.tokushoho {
+  background: var(--bg);
+}
+
+.tokushoho__table {
+  width: 100%;
+  margin-top: var(--space-6);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.tokushoho__row + .tokushoho__row .tokushoho__label,
+.tokushoho__row + .tokushoho__row .tokushoho__value {
+  border-top: 1px solid var(--border);
+}
+
+.tokushoho__label,
+.tokushoho__value {
+  padding: var(--space-4) var(--space-5);
+  color: var(--ink);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  text-align: left;
+  vertical-align: top;
+}
+
+.tokushoho__label {
+  width: 32%;
+  background: var(--mint-light);
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.tokushoho__value {
+  background: var(--surface);
+}
+
+.tokushoho__placeholder {
+  display: inline-block;
+  max-width: 100%;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.tokushoho__badge {
+  display: inline-block;
+  margin-left: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .tokushoho__table,
+  .tokushoho__table tbody,
+  .tokushoho__row,
+  .tokushoho__label,
+  .tokushoho__value {
+    display: block;
+    width: 100%;
+  }
+
+  .tokushoho__label {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .tokushoho__value {
+    padding: var(--space-4);
+  }
+
+  .tokushoho__row + .tokushoho__row .tokushoho__label {
+    border-top: 1px solid var(--border);
+  }
+
+  .tokushoho__row + .tokushoho__row .tokushoho__value,
+  .tokushoho__value {
+    border-top: 0;
+  }
+
+  .tokushoho__badge {
+    margin-top: var(--space-2);
+    margin-left: 0;
+  }
+}

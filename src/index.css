@@ -1,0 +1,223 @@
+/*
+ * bitSalon 紹介LP デザイントークン
+ *
+ * 配色はサービス資料・チラシ(reference/bit-salon-brochure.html / reference/bit-salon-flyer4.html)の
+ * ミント系を踏襲しつつ、本文・CTAに使える濃度まで深めたもの。
+ * WCAG AA(4.5:1)を満たす組み合わせのみを本文・ボタンに使う。
+ *   --ink   on --bg       13.27:1
+ *   --ink   on --surface  13.72:1
+ *   --muted on --bg        5.12:1
+ *   --primary on --surface 5.46:1
+ *   --cta-text on --cta-bg 5.46:1
+ *   --ink   on --accent     5.67:1
+ * 逆に白文字を --accent(2.42:1) や --mint(1.62:1) に載せてはいけない。
+ */
+:root {
+  color-scheme: light;
+
+  /* ブランドカラー */
+  --primary: #1f7668;
+  --primary-dark: #174f47;
+  --accent: #c9a227;
+
+  /* 文字 */
+  --ink: #23302c;
+  --muted: #5f6f6a;
+
+  /* 面 */
+  --bg: #fdfbf7;
+  --surface: #ffffff;
+  --border: #d8e8e2;
+
+  /* --ink などの濃い面に載せる文字色 */
+  --on-dark: #ffffff;
+  --on-dark-muted: rgba(255, 255, 255, 0.78);
+
+  /* 装飾専用の明るいミント。文字色には使わず、薄い面・タグの背景に限る */
+  --mint: #7fdcc4;
+  --mint-light: #b8f0e3;
+
+  /* CTA */
+  --cta-bg: #1f7668;
+  --cta-bg-hover: #174f47;
+  --cta-text: #ffffff;
+  --cta-secondary-bg: #ffffff;
+  --cta-secondary-text: #1f7668;
+  --cta-secondary-border: #9bdccd;
+
+  /* タイポグラフィ */
+  --font-heading: 'Zen Kaku Gothic New', 'Noto Sans JP', system-ui, sans-serif;
+  --font-body: 'Noto Sans JP', system-ui, sans-serif;
+
+  /* 余白スケール。余白・間隔にはこれを使い、角丸トークンを流用しない */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-8: 48px;
+
+  /* レイアウト */
+  --container: 1080px;
+  /* 固定ヘッダーの高さ。アンカー遷移時のオフセットに使う */
+  --header-height: 66px;
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow-card: 0 2px 10px rgba(35, 48, 44, 0.06);
+  --shadow-float: 0 12px 32px rgba(35, 48, 44, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+table {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+a {
+  color: var(--primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* 固定ヘッダーの下にアンカー先が隠れないようにする */
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
+}
+
+/* ===== 共通レイアウト ===== */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.section {
+  padding-block: 80px;
+}
+
+.section--tinted {
+  background: var(--surface);
+}
+
+.section__title {
+  font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2rem);
+  text-align: center;
+}
+
+.section__lead {
+  margin-top: 12px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ===== ボタン ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 56px;
+  padding: 0 32px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn--primary {
+  background: var(--cta-bg);
+  color: var(--cta-text);
+}
+
+.btn--primary:hover {
+  background: var(--cta-bg-hover);
+}
+
+.btn--secondary {
+  background: var(--cta-secondary-bg);
+  color: var(--cta-secondary-text);
+  border-color: var(--cta-secondary-border);
+}
+
+.btn--secondary:hover {
+  border-color: var(--primary);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --header-height: 52px;
+  }
+
+  .section {
+    padding-block: 56px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
