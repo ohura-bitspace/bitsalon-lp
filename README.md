@@ -25,16 +25,21 @@ npm run build
 
 GitHub Actions で `main` ブランチへの push をトリガーに GitHub Pages へ自動デプロイします。
 
-カスタムドメインは `biz.bitspace.jp` です。GitHub Pages 側には `public/CNAME` で設定します。
+現在の公開URLは `https://ohura-bitspace.github.io/bitsalon-lp/` です。
 
-`vite.config.ts` の `base` は、カスタムドメイン運用のため `'/'` のままにしてください。`/bitsalon-lp/` などに変更すると、本番環境でアセットやルーティングが崩れます。
+`vite.config.ts` の `base` と React Router の `basename` は、GitHub Pages のプロジェクトパス `/bitsalon-lp/` を使用します。
 
 ## 手動設定が必要な項目
 
 Claude Code や CI では自動化できないため、次の項目は人が設定してください。
 
 - リポジトリの Settings → Pages → Build and deployment の Source を **GitHub Actions** に設定する
-- カスタムドメインの DNS 設定として、`biz.bitspace.jp` の CNAME を GitHub Pages に向ける
+
+### 将来カスタムドメインに移行する場合
+
+1. GitHub の Settings → Pages で Custom domain を設定する
+2. DNS プロバイダーで対象サブドメインの CNAME を `ohura-bitspace.github.io` に向ける
+3. `vite.config.ts` の `base` を `'/'` に変更する
 
 ## 公開前に差し替えが必要なプレースホルダー一覧
 
