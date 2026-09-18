@@ -1,30 +1,33 @@
+import { Link } from 'react-router-dom';
 import './Hero.css';
 
 export default function Hero() {
   return (
     <section className="hero">
       <div className="container hero__inner">
-        <div className="hero__content">
+        <div className="hero__headline">
+          <p className="hero__eyebrow">B / DAILY TOOL</p>
           <h1 className="hero__title">
-            <span>常連さまの予約を、</span>
-            <span>LINEひとつで。</span>
+            <span>予約も、カルテも。</span>
+            <span>サロンの一日が、</span>
+            <span>ひと目でわかる。</span>
           </h1>
+        </div>
+        <div className="hero__aside">
           <p className="hero__lead">
-            予約受付から顧客カルテ・会計・売上分析まで。小規模サロンの毎日を、ひとつのシステムにまとめました。
+            LINEから入った予約を、
+            <br />
+            いつもの予約表へ。
+            <br />
+            お客様の情報も、ひとつに。
           </p>
-          <ul className="hero__tags" aria-label="bitSalonの特徴">
-            <li className="hero__tag">アプリのインストール不要</li>
-            <li className="hero__tag">初期費用 0円</li>
-            <li className="hero__tag">契約期間の縛りなし</li>
-          </ul>
-          <div className="hero__actions">
-            <a className="btn btn--primary" href="#contact">
-              話を聞いてみる
-            </a>
-            <a className="btn btn--secondary" href="#pricing">
-              料金を見る
-            </a>
-          </div>
+          <Link className="btn btn--primary hero__cta" to="/#contact">
+            画面を見ながら相談する
+            <span className="btn__arrow" aria-hidden="true">
+              →
+            </span>
+          </Link>
+          <p className="hero__note">小規模サロン向け 予約・顧客管理システム</p>
         </div>
       </div>
     </section>

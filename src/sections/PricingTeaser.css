@@ -1,0 +1,110 @@
+/* 料金セクションへの導線。金額だけを大きく見せ、内訳は #pricing に任せる */
+.teaser {
+  background: var(--bg);
+  padding-block: var(--space-8);
+}
+
+.teaser__title {
+  font-size: clamp(1.25rem, 1rem + 1.1vw, 1.75rem);
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.teaser__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+.teaser__plans {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.teaser__plan + .teaser__plan {
+  padding-left: var(--space-5);
+  border-left: 1px solid var(--border);
+}
+
+.teaser__plan-name {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.teaser__price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  color: var(--ink);
+}
+
+.teaser__amount {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 1.3rem + 2.8vw, 3.25rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.teaser__unit {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.teaser__tax {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.teaser__aside {
+  text-align: right;
+}
+
+.teaser__note {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.teaser__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-underline-offset: 6px;
+}
+
+@media (max-width: 767px) {
+  .teaser__body {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .teaser__aside {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .teaser__plans {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+
+  .teaser__plan + .teaser__plan {
+    padding-left: 0;
+    padding-top: var(--space-4);
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+}

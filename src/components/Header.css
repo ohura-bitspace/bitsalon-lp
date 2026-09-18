@@ -32,6 +32,11 @@
   margin-left: auto;
 }
 
+/* ロゴの直後に置くと見出しと競合するため、ナビは右側にまとめる */
+.header__nav + .header__cta {
+  margin-left: var(--space-5);
+}
+
 .header__nav-link {
   color: var(--ink);
   font-family: var(--font-heading);
@@ -65,8 +70,12 @@
     font-size: 1.25rem;
   }
 
-  .header__cta {
+  /* index.css が後に読み込まれるため、.btn の width:100% に勝つよう詳細度を上げる */
+  .header .header__cta {
     width: auto;
+  }
+
+  .header__cta {
     min-height: 40px;
     padding-inline: var(--space-4);
     font-size: 0.9375rem;

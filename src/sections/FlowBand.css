@@ -1,0 +1,98 @@
+/*
+ * ミントの帯。白文字は --mint 上で 1.62:1 しかないため、文字は --ink / --band-muted を使う。
+ * --ink on --band-bg = 8.45:1、--band-muted on --band-bg = 5.41:1 でいずれも AA を満たす。
+ */
+.flow {
+  background: var(--band-bg);
+  color: var(--ink);
+  padding-block: var(--space-8);
+}
+
+.flow__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.flow__title {
+  font-size: clamp(1.375rem, 1rem + 1.6vw, 2.125rem);
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.flow__title span {
+  display: block;
+}
+
+.flow__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.flow__step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* 番号のうしろに罫線を伸ばして、左から右への流れを示す */
+.flow__num {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--band-muted);
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.flow__num::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--band-line);
+}
+
+.flow__label {
+  font-family: var(--font-heading);
+  font-size: clamp(0.875rem, 0.8rem + 0.35vw, 1.0625rem);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .flow__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 640px) {
+  .flow {
+    padding-block: var(--space-6);
+  }
+
+  .flow__steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-3);
+  }
+
+  .flow__step {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .flow__num {
+    flex: 0 0 auto;
+  }
+
+  .flow__num::after {
+    width: var(--space-6);
+    flex: 0 0 auto;
+  }
+}

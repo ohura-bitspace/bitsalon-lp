@@ -37,6 +37,11 @@
   --mint: #7fdcc4;
   --mint-light: #b8f0e3;
 
+  /* ミントの帯セクション。白文字(1.62:1)は不可なので、文字は --ink / --band-muted を載せる */
+  --band-bg: #7fdcc4;
+  --band-muted: #3a4f48;
+  --band-line: rgba(35, 48, 44, 0.3);
+
   /* CTA */
   --cta-bg: #1f7668;
   --cta-bg-hover: #174f47;
@@ -199,6 +204,12 @@ section[id] {
 
 .btn--secondary:hover {
   border-color: var(--primary);
+}
+
+/* ボタン末尾の矢印。装飾なのでスクリーンリーダーからは隠す */
+.btn__arrow {
+  font-size: 1.125em;
+  line-height: 1;
 }
 
 @media (max-width: 640px) {

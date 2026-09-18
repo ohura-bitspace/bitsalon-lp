@@ -1,0 +1,41 @@
+import { Link } from 'react-router-dom';
+import './PricingTeaser.css';
+
+/* 金額は PricingSection の個人・小規模サロン向けプランと同じ値を出す */
+const plans = [
+  { key: 'standard', label: 'スタンダード', amount: '4,800' },
+  { key: 'pro', label: 'プロ', amount: '9,600' },
+];
+
+export default function PricingTeaser() {
+  return (
+    <section className="teaser">
+      <div className="container teaser__inner">
+        <h2 className="teaser__title">使う機能に合わせて、選べます。</h2>
+        <div className="teaser__body">
+          <ul className="teaser__plans">
+            {plans.map((plan) => (
+              <li className="teaser__plan" key={plan.key}>
+                <p className="teaser__plan-name">{plan.label}</p>
+                <p className="teaser__price">
+                  <span className="teaser__amount">{plan.amount}</span>
+                  <span className="teaser__unit">円 / 月</span>
+                  <span className="teaser__tax">（税別）</span>
+                </p>
+              </li>
+            ))}
+          </ul>
+          <div className="teaser__aside">
+            <p className="teaser__note">初期費用0円・契約期間の縛りなし</p>
+            <Link className="teaser__link" to="/#pricing">
+              料金プランを見る
+              <span className="btn__arrow" aria-hidden="true">
+                →
+              </span>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
