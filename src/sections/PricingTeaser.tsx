@@ -29,9 +29,6 @@ export default function PricingTeaser() {
             <p className="teaser__note">初期費用0円・契約期間の縛りなし</p>
             <Link className="teaser__link" to="/#pricing">
               料金プランを見る
-              <span className="btn__arrow" aria-hidden="true">
-                →
-              </span>
             </Link>
           </div>
         </div>

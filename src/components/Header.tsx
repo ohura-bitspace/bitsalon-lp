@@ -15,15 +15,9 @@ export default function Header() {
           <Link className="header__nav-link" to="/#pricing">
             料金
           </Link>
-          <Link className="header__nav-link" to="/#contact">
-            導入の相談
-          </Link>
         </nav>
         <Link className="header__cta btn btn--primary" to="/#contact">
           話を聞いてみる
-          <span className="btn__arrow" aria-hidden="true">
-            →
-          </span>
         </Link>
       </div>
     </header>

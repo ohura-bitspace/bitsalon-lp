@@ -23,9 +23,6 @@ export default function Hero() {
           </p>
           <Link className="btn btn--primary hero__cta" to="/#contact">
             画面を見ながら相談する
-            <span className="btn__arrow" aria-hidden="true">
-              →
-            </span>
           </Link>
           <p className="hero__note">小規模サロン向け 予約・顧客管理システム</p>
         </div>

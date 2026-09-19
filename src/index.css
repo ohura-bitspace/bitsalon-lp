@@ -206,12 +206,6 @@ section[id] {
   border-color: var(--primary);
 }
 
-/* ボタン末尾の矢印。装飾なのでスクリーンリーダーからは隠す */
-.btn__arrow {
-  font-size: 1.125em;
-  line-height: 1;
-}
-
 @media (max-width: 640px) {
   :root {
     --header-height: 52px;
