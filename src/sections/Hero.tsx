@@ -6,7 +6,6 @@ export default function Hero() {
     <section className="hero">
       <div className="container hero__inner">
         <div className="hero__headline">
-          <p className="hero__eyebrow">B / DAILY TOOL</p>
           <h1 className="hero__title">
             <span>予約も、カルテも。</span>
             <span>サロンの一日が、</span>
