@@ -63,11 +63,8 @@ VITE_GA_ID=G-XXXXXXXXXX
 | ファイル | プレースホルダー | 内容 |
 |---|---|---|
 | `src/sections/CtaSection.tsx` | `[LINE_OA_URL]` | LINE公式アカウントのURL |
-| `src/pages/TokushohoPage.tsx` | `[代表者氏名]` | 運営統括責任者の氏名（特定商取引法の表示義務項目） |
-| `src/pages/TokushohoPage.tsx` | `[TBD]` | サービス提供時期の営業日数（同上） |
-| `src/pages/TokushohoPage.tsx` | `[TBD - 要検討]` | 返品・キャンセルポリシー（同上） |
 
-これらの項目は法令上の表示義務に関わるため、推測で埋めずに事業者本人が確認して入力してください。
+特定商取引法の表示義務項目は事業者本人の確認済みの内容を記載しています。推測で書き換えないでください。
 
 ## 参考資料
 
