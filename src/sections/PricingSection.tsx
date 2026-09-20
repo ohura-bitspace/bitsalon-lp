@@ -1,90 +1,6 @@
+import type { Plan } from '../data/plans';
+import { formatAmount, planGroups } from '../data/plans';
 import './PricingSection.css';
-
-type Plan = {
-  key: string;
-  label: string;
-  price: string;
-  term: string;
-  features: string[];
-  badge?: string;
-};
-
-type PlanGroup = {
-  key: string;
-  label: string;
-  plans: Plan[];
-  /** true のグループは折りたたみ（初期表示は閉じた状態）で出す */
-  collapsible?: boolean;
-};
-
-const planGroups: PlanGroup[] = [
-  {
-    key: 'small-salon',
-    label: '個人・小規模サロン向け',
-    plans: [
-      {
-        key: 'standard',
-        label: 'スタンダード',
-        price: '¥4,800',
-        term: '月額（税別）',
-        features: [
-          '予約管理（カレンダー・ネット予約）',
-          '顧客管理（電子カルテ）',
-          'メニュー・スタッフ管理',
-          'ホームページ（基本設定）',
-          '売上レポート（基本）',
-        ],
-      },
-      {
-        key: 'pro',
-        label: 'プロ',
-        price: '¥9,600',
-        term: '月額（税別）',
-        badge: 'おすすめ',
-        features: [
-          'スタンダードの全機能',
-          'メッセージ機能',
-          'ホームページ（拡張設定）',
-          '予約リマインダー（LINE通知）',
-          '回数券（前売り）',
-          '売上レポート（詳細分析）',
-        ],
-      },
-    ],
-  },
-  {
-    key: 'multi-location',
-    label: '複数店舗向け',
-    collapsible: true,
-    plans: [
-      {
-        key: 'business-standard',
-        label: 'ビジネス スタンダード',
-        price: '¥9,000',
-        term: '月額（税別）',
-        badge: '2店舗込み',
-        features: [
-          'スタンダードの全機能',
-          '複数店舗の一括管理',
-          '追加店舗 +¥4,000/月（税別）',
-        ],
-      },
-      {
-        key: 'business-pro',
-        label: 'ビジネス プロ',
-        price: '¥18,000',
-        term: '月額（税別）',
-        badge: '2店舗込み',
-        features: [
-          'プロの全機能',
-          '複数店舗の一括管理',
-          '優先サポート',
-          '追加店舗 +¥8,000/月（税別）',
-        ],
-      },
-    ],
-  },
-];
 
 function PlanCards({ plans }: { plans: Plan[] }) {
   return (
@@ -96,8 +12,8 @@ function PlanCards({ plans }: { plans: Plan[] }) {
             {plan.badge ? <span className="pricing__badge">{plan.badge}</span> : null}
           </div>
           <p className="pricing__price">
-            <span className="pricing__amount">{plan.price}</span>
-            <span className="pricing__term">{plan.term}</span>
+            <span className="pricing__amount">¥{formatAmount(plan.amount)}</span>
+            <span className="pricing__term">月額（税別）</span>
           </p>
           <ul className="pricing__features">
             {plan.features.map((feature) => (

@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom';
+import { formatAmount, smallSalonPlans } from '../data/plans';
 import './PricingTeaser.css';
-
-/* 金額は PricingSection の個人・小規模サロン向けプランと同じ値を出す */
-const plans = [
-  { key: 'standard', label: 'スタンダード', amount: '4,800' },
-  { key: 'pro', label: 'プロ', amount: '9,600' },
-];
 
 export default function PricingTeaser() {
   return (
@@ -14,11 +9,11 @@ export default function PricingTeaser() {
         <h2 className="teaser__title">使う機能に合わせて、選べます。</h2>
         <div className="teaser__body">
           <ul className="teaser__plans">
-            {plans.map((plan) => (
+            {smallSalonPlans.map((plan) => (
               <li className="teaser__plan" key={plan.key}>
                 <p className="teaser__plan-name">{plan.label}</p>
                 <p className="teaser__price">
-                  <span className="teaser__amount">{plan.amount}</span>
+                  <span className="teaser__amount">{formatAmount(plan.amount)}</span>
                   <span className="teaser__unit">円 / 月</span>
                   <span className="teaser__tax">（税別）</span>
                 </p>
