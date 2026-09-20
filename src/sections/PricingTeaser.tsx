@@ -21,7 +21,7 @@ export default function PricingTeaser() {
             ))}
           </ul>
           <div className="teaser__aside">
-            <p className="teaser__note">初期費用0円・契約期間の縛りなし</p>
+            <p className="teaser__note">初期費用5,000円〜30,000円程度（税別）・契約期間の縛りなし</p>
             <Link className="teaser__link" to="/#pricing">
               料金プランを見る
             </Link>

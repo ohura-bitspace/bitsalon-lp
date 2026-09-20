@@ -34,7 +34,7 @@ export default function PricingSection() {
       <div className="container pricing">
         <h2 className="section__title">料金プラン</h2>
         <p className="section__lead">
-          初期費用は0円、契約期間の縛りもありません。必要な機能に合わせて選べます。
+          初期費用は導入内容に応じて5,000円〜30,000円程度（税別）。契約期間の縛りはなく、必要な機能に合わせて選べます。
         </p>
 
         <div className="pricing__groups">
@@ -63,6 +63,9 @@ export default function PricingSection() {
 
         <div className="pricing__notes">
           <p>※ 表示価格はすべて税別です。</p>
+          <p>
+            ※ 初期費用は初期設定の代行範囲やデータ移行の有無によって変わります。お申し込み前にお見積りをご提示します。
+          </p>
           <p>※ お支払いはクレジットカード（Stripe決済）に対応しています。プランの変更は管理画面からいつでも行えます。</p>
         </div>
       </div>
