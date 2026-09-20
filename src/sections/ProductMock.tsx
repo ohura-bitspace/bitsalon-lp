@@ -23,15 +23,55 @@ type Slot = {
 const RANGE_START = 9 * 60;
 const RANGE_HOURS = 9;
 
-const days = [
-  { label: '9/19(土)', tone: 'saturday' },
-  { label: '9/20(日)', tone: 'sunday' },
-  { label: '9/21(月)', tone: 'weekday' },
-  { label: '9/22(火)', tone: 'weekday' },
-  { label: '9/23(水)', tone: 'weekday' },
-  { label: '9/24(木)', tone: 'weekday' },
-  { label: '9/25(金)', tone: 'weekday' },
-];
+/*
+ * 日付は表示時点を基準に組み立てる。固定値だと時間が経つほど「過去の予約表」になるため。
+ */
+const weekdayLabels = ['日', '月', '火', '水', '木', '金', '土'];
+
+function startOfDay(date: Date) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
+function addDays(base: Date, days: number) {
+  const date = new Date(base);
+  date.setDate(date.getDate() + days);
+  return date;
+}
+
+/** 来店履歴で使う YYYY-MM-DD 形式 */
+function daysAgo(days: number) {
+  const date = addDays(today, -days);
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${date.getFullYear()}-${month}-${day}`;
+}
+
+/** 「2026年9月19日 – 25日」。月・年をまたぐときだけ後半にも月・年を出す */
+function weekRangeLabel(start: Date, end: Date) {
+  const head = `${start.getFullYear()}年${start.getMonth() + 1}月${start.getDate()}日`;
+
+  if (start.getFullYear() !== end.getFullYear()) {
+    return `${head} – ${end.getFullYear()}年${end.getMonth() + 1}月${end.getDate()}日`;
+  }
+  if (start.getMonth() !== end.getMonth()) {
+    return `${head} – ${end.getMonth() + 1}月${end.getDate()}日`;
+  }
+  return `${head} – ${end.getDate()}日`;
+}
+
+const today = startOfDay(new Date());
+
+/** 表示週は直近の土曜はじまり。列の曜日色と schedule の並びを固定したまま使うため */
+const weekStart = addDays(today, -((today.getDay() + 1) % 7));
+const weekRange = weekRangeLabel(weekStart, addDays(weekStart, 6));
+const todayIndex = (today.getDay() + 1) % 7;
+
+const dayTones = ['saturday', 'sunday', 'weekday', 'weekday', 'weekday', 'weekday', 'weekday'];
+
+const days = dayTones.map((tone, index) => {
+  const date = addDays(weekStart, index);
+  return { label: `${date.getMonth() + 1}/${date.getDate()}(${weekdayLabels[date.getDay()]})`, tone };
+});
 
 /* docs/guide の撮影用データと同じ顧客・メニューを使用 */
 const schedule: Slot[][] = [
@@ -65,26 +105,27 @@ const schedule: Slot[][] = [
 ];
 
 const customers = [
-  { initial: '田', name: '田中 美咲', lineName: 'Misaki.T', lastVisit: '2026-09-17', selected: true },
-  { initial: '鈴', name: '鈴木 健太', lineName: 'Kenta.S', lastVisit: '2026-09-10' },
-  { initial: '高', name: '高橋 由美', lineName: 'Yumi.T', lastVisit: '2026-09-05' },
+  { initial: '田', name: '田中 美咲', lineName: 'Misaki.T', lastVisit: daysAgo(3), selected: true },
+  { initial: '鈴', name: '鈴木 健太', lineName: 'Kenta.S', lastVisit: daysAgo(10) },
+  { initial: '高', name: '高橋 由美', lineName: 'Yumi.T', lastVisit: daysAgo(15) },
 ];
 
+/* 来店周期「0.5ヶ月」の表示と合うよう14日間隔を保つ */
 const visits = [
   {
-    date: '2026-09-17',
+    date: daysAgo(3),
     menus: 'マッサージ＋ヘッドスパ',
     amount: '¥21,800',
     memo: '肩こりが気になるとのこと。首・肩を中心に施術。',
   },
   {
-    date: '2026-09-03',
+    date: daysAgo(17),
     menus: 'マッサージ＋ヘッドスパ',
     amount: '¥21,800',
     memo: '力加減を確認しながら、肩まわりを長めに。',
   },
   {
-    date: '2026-08-20',
+    date: daysAgo(31),
     menus: 'マッサージ＋ヘッドスパ',
     amount: '¥21,800',
     memo: '首まわりに張りあり。施術後は軽くなったとのこと。',
@@ -178,7 +219,7 @@ function CalendarPreview() {
       </div>
       <div className="mock__datebar">
         <span className="mock__chevron">‹</span>
-        <p>2026年9月19日 – 25日</p>
+        <p>{weekRange}</p>
         <span className="mock__chevron">›</span>
       </div>
 
@@ -200,7 +241,7 @@ function CalendarPreview() {
 
         {days.map((day, index) => (
           <div
-            className={`mock__col mock__col--${day.tone}${index === 0 ? ' mock__col--today' : ''}`}
+            className={`mock__col mock__col--${day.tone}${index === todayIndex ? ' mock__col--today' : ''}`}
             key={day.label}
           >
             <div className="mock__col-head">{day.label}</div>
