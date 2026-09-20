@@ -1,3 +1,4 @@
+import { trackEvent } from '../analytics';
 import './CtaSection.css';
 
 export default function CtaSection() {
@@ -11,7 +12,11 @@ export default function CtaSection() {
           </p>
           <div className="cta__actions">
             {/* 公開前に LINE公式アカウントのURLへ差し替える */}
-            <a className="btn btn--primary cta__button" href="[LINE_OA_URL]">
+            <a
+              className="btn btn--primary cta__button"
+              href="[LINE_OA_URL]"
+              onClick={() => trackEvent('line_cta_click')}
+            >
               LINEで相談する
             </a>
           </div>

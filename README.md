@@ -34,12 +34,29 @@ GitHub Actions で `main` ブランチへの push をトリガーに GitHub Page
 Claude Code や CI では自動化できないため、次の項目は人が設定してください。
 
 - リポジトリの Settings → Pages → Build and deployment の Source を **GitHub Actions** に設定する
+- Google アナリティクスの測定IDを設定する（下記「アクセス解析」）
+- プライバシーポリシーのページを用意する（Google アナリティクスは Cookie を使うため）
+- SNS共有カード用の画像（1200×630）を `public/` に置き、`index.html` に `og:image` と `twitter:card` の `summary_large_image` を追加する（現在は画像なしの `summary`）
 
 ### 将来カスタムドメインに移行する場合
 
 1. GitHub の Settings → Pages で Custom domain を設定する
 2. DNS プロバイダーで対象サブドメインの CNAME を `ohura-bitspace.github.io` に向ける
 3. `vite.config.ts` の `base` を `'/'` に変更する
+4. `index.html` の `og:url` を新しいURLに書き換える
+
+## アクセス解析
+
+Google アナリティクス（GA4）を使います。測定IDはリポジトリ直下の `.env.production` に書きます。
+
+```
+VITE_GA_ID=G-XXXXXXXXXX
+```
+
+- 測定IDはページのソースに出る公開情報なので、コミットして構いません。
+- 未設定のままビルドすると計測タグを読み込みません（実測: 未設定のビルド成果物に `googletagmanager` の記述なし）。
+- ビルド時に埋め込む値のため、変更後は再デプロイが必要です。
+- 画面遷移ごとの `page_view` と、LINE相談ボタンのクリック（イベント名 `line_cta_click`）を送ります。
 
 ## 公開前に差し替えが必要なプレースホルダー一覧
 

@@ -1,0 +1,6 @@
+<!-- タブ表示用のアイコン。16px でも潰れないよう、文字ではなく図形で「b」を描く -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <rect width="48" height="48" rx="11" fill="#1f7668" />
+  <rect x="12" y="8" width="5.5" height="32" rx="2.75" fill="#ffffff" />
+  <circle cx="26" cy="29.5" r="9.5" fill="none" stroke="#ffffff" stroke-width="5.5" />
+</svg>
