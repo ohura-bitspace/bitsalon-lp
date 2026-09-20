@@ -8,22 +8,22 @@ export default function Hero() {
         <div className="hero__headline">
           <h1 className="hero__title">
             <span>予約も、カルテも。</span>
-            <span>サロンの一日が、</span>
-            <span>ひと目でわかる。</span>
+            <span>もっとかんたんに。</span>
+            <span>もっと手ごろに。</span>
           </h1>
         </div>
         <div className="hero__aside">
           <p className="hero__lead">
             LINEから入った予約を、
             <br />
-            いつもの予約表へ。
+            見やすい予約表へ。
             <br />
-            お客様の情報も、ひとつに。
+            カルテも来店履歴も、ひとつに。
           </p>
           <Link className="btn btn--primary hero__cta" to="/#contact">
             画面を見ながら相談する
           </Link>
-          <p className="hero__note">小規模サロン向け 予約・顧客管理システム</p>
+          <p className="hero__note">小規模サロン向け 予約・顧客管理アプリ</p>
         </div>
       </div>
     </section>
