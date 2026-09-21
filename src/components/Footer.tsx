@@ -6,8 +6,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer__inner container">
         <div className="footer__info">
-          <p className="footer__brand">bitSpace</p>
-          <p>サービス名 bitSalon</p>
+          <p className="footer__brand">bitSalon</p>
+          <p>サロン向け予約・顧客管理システム</p>
+          <p className="footer__operator">運営: bitSpace</p>
         </div>
         <div className="footer__meta">
           <Link className="footer__link" to="/tokushoho#contact-email">

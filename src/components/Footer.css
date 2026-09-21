@@ -33,6 +33,8 @@
   text-underline-offset: var(--space-1);
 }
 
+/* 運営元は補足なので、著作権表示と同じ濃度に落として主従を付ける */
+.footer__operator,
 .footer__copyright {
   color: var(--on-dark-muted);
 }
