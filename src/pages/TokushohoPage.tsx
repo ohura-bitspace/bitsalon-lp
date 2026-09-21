@@ -13,7 +13,7 @@ const rows: Row[] = [
   { label: '所在地', value: 'ご請求いただいた場合に遅滞なく開示いたします' },
   { label: '電話番号', value: 'ご請求いただいた場合に遅滞なく開示いたします' },
   { label: 'メールアドレス', value: 'bitsalon@bitspace.jp', anchor: 'contact-email' },
-  { label: '販売価格', value: '各プランページに記載の金額' },
+  { label: '販売価格', value: '各プランページに記載の金額（日本円・税別）' },
   {
     label: '商品代金以外の必要料金',
     value:

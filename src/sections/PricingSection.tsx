@@ -58,7 +58,7 @@ export default function PricingSection() {
         </div>
 
         <div className="pricing__notes">
-          <p>※ 表示価格はすべて税別です。</p>
+          <p>※ 表示価格はすべて日本円（JPY）・税別です。</p>
           <p>
             ※ 初期費用として別途5,000円〜30,000円程度（税別）がかかります。初期設定の代行範囲やデータ移行の有無によって変わるため、お申し込み前にお見積りをご提示します。
           </p>
