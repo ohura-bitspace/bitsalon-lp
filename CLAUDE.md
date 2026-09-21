@@ -43,7 +43,7 @@ npm run preview  # dist/ を本番と同じ /bitsalon-lp/ 配下で配信（先�
 - ページごとの `document.title` と `canonical`（静的な `<head>` に書くと全ページ同じ値を名乗ってしまうため実行時に差し替える）
 - GA4 の初期化とページビュー送信
 
-**料金の単一ソースは `src/data/plans.ts`**。`PricingSection` と `PricingTeaser` の両方がここを参照する。金額は数値で持ち、表示整形は `formatAmount`（`ja-JP` 固定）で行う。金額を変えるときはこのファイルだけを直す。ただし `features` 配列の文言に埋め込まれた金額（「追加店舗 +¥4,000/月」など）は文字列のままなので別途確認する。
+**料金の単一ソースは `src/data/plans.ts`**。`PricingSection` と `Hero`（最安プランの月額）がここを参照する。金額は数値で持ち、表示整形は `formatAmount`（`ja-JP` 固定）で行う。金額を変えるときはこのファイルだけを直す。ただし `features` 配列の文言に埋め込まれた金額（「追加店舗 +¥4,000/月」など）は文字列のままなので別途確認する。
 
 **`src/sections/ProductMock.tsx` は実アプリ（`salon-reserve-mobile`）の管理画面を再現したモック**。LP 中で最も大きいコンポーネント。
 
