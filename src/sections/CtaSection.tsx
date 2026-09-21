@@ -11,13 +11,14 @@ export default function CtaSection() {
             実際の画面をご覧いただきながら、サロンの運用に合うかをご説明します。導入をお決めになっていなくても構いません。
           </p>
           <div className="cta__actions">
-            {/* 公開前に LINE公式アカウントのURLへ差し替える */}
             <a
               className="btn btn--primary cta__button"
-              href="[LINE_OA_URL]"
-              onClick={() => trackEvent('line_cta_click')}
+              href="https://docs.google.com/forms/d/e/1FAIpQLScUYArOHeIWiO_UFxU2BRvBQ3WHg7f0j1NF3ozPvVM88UeadA/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent('form_cta_click')}
             >
-              LINEで相談する
+              フォームで問い合わせる
             </a>
           </div>
         </div>

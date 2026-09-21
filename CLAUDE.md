@@ -60,7 +60,7 @@ npm run preview  # dist/ を本番と同じ /bitsalon-lp/ 配下で配信（先�
 ## 計測（GA4）
 
 `src/analytics.ts`。測定IDは `.env.production` の `VITE_GA_ID` から読む。**未設定ならタグを一切読み込まない**（ビルド時に該当コードごと消える）。ビルド時に埋め込む値なので、設定・変更後は再デプロイが必要。
-送信しているのは画面遷移ごとの `page_view` と、LINE相談ボタンのクリック（`line_cta_click`）。
+送信しているのは画面遷移ごとの `page_view` と、問い合わせフォームのボタンのクリック（`form_cta_click`）。
 
 ## 編集時に踏んではいけない地雷
 
@@ -68,4 +68,4 @@ npm run preview  # dist/ を本番と同じ /bitsalon-lp/ 配下で配信（先�
 - **料金の参照元は `salon-reserve-mobile` リポジトリの `src/admin/features/settings/AdminPlanSettings.jsx`（`PLAN_GROUPS`）**。LP 側だけで金額を決めない。
 - **`reference/` はビルド対象外の販促物で、記載価格は旧価格**。現行の料金・仕様の根拠として引用しない。LP のスコープ外として意図的に除外した訴求要素（ホットペッパービューティー連携など）もある。詳細は `reference/README.md`。
 - **複数店舗向けプランは折りたたみで初期非表示**にしている。個人・小規模サロン向けを前面に出す方針によるもので、既定で開く状態に戻さない。
-- 未差し替えのプレースホルダが `src/sections/CtaSection.tsx` の `[LINE_OA_URL]` に残っている。一覧は `README.md` の「公開前に差し替えが必要なプレースホルダー一覧」。
+- **問い合わせ導線は Google フォームへのリンク1本**（`src/sections/CtaSection.tsx`）。静的配信のためフォームの送信先を自前で持てない。
