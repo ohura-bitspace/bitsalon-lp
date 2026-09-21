@@ -1,0 +1,56 @@
+.privacy {
+  background: var(--bg);
+}
+
+/* 読みやすさを優先し、本文はコンテナ幅より狭く保つ */
+.privacy__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 760px;
+  margin-top: var(--space-6);
+  margin-inline: auto;
+}
+
+.privacy__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.privacy__heading {
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+}
+
+.privacy__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* 全体で list-style を外しているため、点は擬似要素で置く */
+.privacy__item {
+  display: grid;
+  grid-template-columns: var(--space-2) 1fr;
+  gap: var(--space-3);
+  align-items: start;
+  color: var(--ink);
+}
+
+.privacy__item::before {
+  content: '';
+  display: block;
+  width: var(--space-2);
+  height: var(--space-2);
+  margin-top: var(--space-3);
+  background: var(--primary);
+  border-radius: var(--radius-sm);
+}
+
+.privacy__established {
+  color: var(--muted);
+  font-size: 0.875rem;
+  text-align: right;
+}

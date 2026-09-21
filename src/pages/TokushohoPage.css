@@ -19,6 +19,10 @@
   border-top: 1px solid var(--border);
 }
 
+.tokushoho__row[id] {
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
+}
+
 .tokushoho__label,
 .tokushoho__value {
   padding: var(--space-4) var(--space-5);

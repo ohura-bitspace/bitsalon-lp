@@ -10,6 +10,12 @@ export default function Footer() {
           <p>サービス名 bitSalon</p>
         </div>
         <div className="footer__meta">
+          <Link className="footer__link" to="/tokushoho#contact-email">
+            メールでのお問い合わせ
+          </Link>
+          <Link className="footer__link" to="/privacy">
+            プライバシーポリシー
+          </Link>
           <Link className="footer__link" to="/tokushoho">
             特定商取引法に基づく表記
           </Link>

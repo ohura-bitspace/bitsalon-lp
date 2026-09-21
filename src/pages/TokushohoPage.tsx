@@ -3,6 +3,8 @@ import './TokushohoPage.css';
 type Row = {
   label: string;
   value: string;
+  /** フッターから直接飛ぶ行に付けるアンカー */
+  anchor?: string;
 };
 
 const rows: Row[] = [
@@ -10,7 +12,7 @@ const rows: Row[] = [
   { label: '運営責任者', value: '大浦 智史' },
   { label: '所在地', value: 'ご請求いただいた場合に遅滞なく開示いたします' },
   { label: '電話番号', value: 'ご請求いただいた場合に遅滞なく開示いたします' },
-  { label: 'メールアドレス', value: 'bitsalon@bitspace.jp' },
+  { label: 'メールアドレス', value: 'bitsalon@bitspace.jp', anchor: 'contact-email' },
   { label: '販売価格', value: '各プランページに記載の金額' },
   {
     label: '商品代金以外の必要料金',
@@ -29,7 +31,7 @@ const rows: Row[] = [
     value:
       'サービスの性質上、提供開始後の返品・返金は承っておりません。解約は管理画面からいつでも行え、'
       + 'お支払い済みの期間の末日までご利用いただけます（日割りの返金は行いません）。'
-      + '当社に起因する不具合によりサービスをご利用いただけなかった場合は、個別に対応いたします。',
+      + '当方に起因する不具合によりサービスをご利用いただけなかった場合は、個別に対応いたします。',
   },
   { label: '動作環境', value: 'LINEアプリが利用可能なスマートフォン、または管理画面用のWebブラウザ' },
   { label: '事業者の種別', value: '個人事業主' },
@@ -46,7 +48,7 @@ export default function TokushohoPage() {
               const isPlaceholder = row.value.includes('[');
 
               return (
-                <tr className="tokushoho__row" key={row.label}>
+                <tr className="tokushoho__row" key={row.label} id={row.anchor}>
                   <th className="tokushoho__label" scope="row">
                     {row.label}
                   </th>
