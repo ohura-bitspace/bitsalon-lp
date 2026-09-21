@@ -13,7 +13,7 @@ Vite + React + TypeScript + React Router。スタイルは素のCSS（CSS Module
 npm install
 npm run dev      # Vite 開発サーバ
 npm run build    # tsc（型チェック）→ vite build → postbuild で dist/404.html を複製
-npm run preview  # dist/ を本番と同じ /bitsalon-lp/ 配下で配信（先に build）
+npm run preview  # dist/ を本番と同じ構成で配信（先に build）
 ```
 
 - テストランナーは未導入。変更の検証は `npm run build`（型チェックを含む）と、開発サーバでの目視で行う。
@@ -22,11 +22,12 @@ npm run preview  # dist/ を本番と同じ /bitsalon-lp/ 配下で配信（先�
 ## デプロイと URL の前提
 
 `main` への push で GitHub Actions が GitHub Pages へ自動デプロイする（`.github/workflows/deploy.yml`）。
-公開URLは `https://ohura-bitspace.github.io/bitsalon-lp/`。
+公開URLは `https://bitsalon.bitspace.jp/`（カスタムドメイン。DNS はさくらの `bitspace.jp` ゾーンで `bitsalon` を GitHub Pages へ CNAME）。
+Actions で公開しているため `CNAME` ファイルは置かない（置いても無視される）。
 
-プロジェクトサイト配下で動かすため、次の3つが揃っている必要がある。1つでも欠けるとリンクかアセットが壊れる。
+ルート直下で配信するため、次の3つが揃っている必要がある。1つでも欠けるとリンクかアセットが壊れる。
 
-- `vite.config.ts` の `base: '/bitsalon-lp/'`
+- `vite.config.ts` の `base: '/'`
 - `App.tsx` の `<BrowserRouter basename={import.meta.env.BASE_URL}>`
 - `package.json` の `postbuild`（`dist/index.html` を `dist/404.html` へ複製）
 

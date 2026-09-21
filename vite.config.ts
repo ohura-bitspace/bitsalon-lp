@@ -2,8 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  // GitHub Pages のプロジェクトサイト配下でアセットを参照する。
-  // 将来カスタムドメインに移行する際は '/'に変更する。
-  base: '/bitsalon-lp/',
+  // カスタムドメイン（bitsalon.bitspace.jp）のルートで配信するため '/' にする。
+  // github.io のプロジェクトパス配下（/bitsalon-lp/）へ戻す場合は、ここと og:url を直す。
+  base: '/',
   plugins: [react()],
 });

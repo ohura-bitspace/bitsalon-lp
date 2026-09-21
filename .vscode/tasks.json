@@ -31,7 +31,7 @@
     },
     {
       "label": "4. ビルド結果の確認 (npm run preview)",
-      "detail": "dist/ を本番と同じ /bitsalon-lp/ 配下で配信する。先に 3 を実行しておく",
+      "detail": "dist/ を本番と同じ構成で配信する。先に 3 を実行しておく",
       "type": "shell",
       "command": "npm run preview",
       "isBackground": true,
