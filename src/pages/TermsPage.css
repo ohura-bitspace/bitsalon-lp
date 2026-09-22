@@ -1,0 +1,95 @@
+.terms {
+  background: var(--bg);
+}
+
+/* 条文は読み進める文章なので、コンテナ幅より狭く保つ */
+.terms__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 760px;
+  margin-top: var(--space-6);
+  margin-inline: auto;
+}
+
+.terms__article {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.terms__heading {
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+}
+
+/* 項・号はいずれも番号付き。全体で list-style を外しているため、番号は擬似要素で振る */
+.terms__paragraphs,
+.terms__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  counter-reset: item;
+}
+
+.terms__items {
+  margin-left: var(--space-5);
+}
+
+.terms__paragraph,
+.terms__item {
+  position: relative;
+  padding-left: var(--space-6);
+  color: var(--ink);
+  counter-increment: item;
+}
+
+.terms__paragraph::before,
+.terms__item::before {
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.terms__paragraph::before {
+  content: counter(item) '.';
+}
+
+.terms__item::before {
+  content: '(' counter(item) ')';
+}
+
+/* 項が1つだけの条文では番号を出さない（「1.」だけが浮くため） */
+.terms__paragraphs:has(> :only-child) .terms__paragraph {
+  padding-left: 0;
+}
+
+.terms__paragraphs:has(> :only-child) .terms__paragraph::before {
+  content: none;
+}
+
+.terms__note {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.terms__established {
+  color: var(--muted);
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .terms__items {
+    margin-left: var(--space-3);
+  }
+
+  .terms__paragraph,
+  .terms__item {
+    padding-left: var(--space-5);
+  }
+}

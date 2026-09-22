@@ -10,6 +10,7 @@ const pageTitles: Record<string, string> = {
   '/': 'bitSalon｜LINEで完結するサロン予約・顧客管理',
   '/tokushoho': '特定商取引法に基づく表記｜bitSalon',
   '/privacy': 'プライバシーポリシー｜bitSalon',
+  '/terms': '利用規約｜bitSalon',
 };
 
 type LayoutProps = {

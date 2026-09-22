@@ -14,6 +14,9 @@ export default function Footer() {
           <Link className="footer__link" to="/tokushoho#contact-email">
             メールでのお問い合わせ
           </Link>
+          <Link className="footer__link" to="/terms">
+            利用規約
+          </Link>
           <Link className="footer__link" to="/privacy">
             プライバシーポリシー
           </Link>
