@@ -1,0 +1,8 @@
+/*
+ * 日本語を文節単位で折り返す。語の途中（「管／理」など）では改行せず、<wbr> の位置と句読点でだけ折る。
+ * 文節が行幅を超えるほど狭い画面では overflow-wrap で任意の位置に折り、はみ出しを防ぐ。
+ */
+.phrases {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}

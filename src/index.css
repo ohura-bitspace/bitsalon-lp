@@ -8,9 +8,14 @@
  *   --ink   on --surface  13.72:1
  *   --muted on --bg        5.12:1
  *   --primary on --surface 5.46:1
- *   --cta-text on --cta-bg 5.46:1
+ *   --cta-text on --cta-bg 6.66:1
+ *   --ink   on --soft     11.67:1
+ *   --band-muted on --soft 7.47:1
  *   --ink   on --accent     5.67:1
- * 逆に白文字を --accent(2.42:1) や --mint(1.62:1) に載せてはいけない。
+ * 逆に白文字を --accent(2.42:1) や --mint(1.62:1)、--cta-bg / --soft に載せてはいけない。
+ *
+ * 面の方針: 白・アイボリーを基調にし、濃い緑(--primary)は文字色と小さな装飾に限る。
+ * ボタンや帯など面積の大きい要素に濃い緑を塗らない（全体が暗く、硬い印象になるため）。
  */
 :root {
   color-scheme: light;
@@ -37,15 +42,19 @@
   --mint: #7fdcc4;
   --mint-light: #b8f0e3;
 
-  /* ミントの帯セクション。白文字(1.62:1)は不可なので、文字は --ink / --band-muted を載せる */
-  --band-bg: #7fdcc4;
+  /* 帯・パネル用の淡いミント面。文字は --ink / --band-muted を載せる */
+  --soft: #d6f3ea;
+
+  /* ミントの帯セクション */
+  --band-bg: var(--soft);
   --band-muted: #3a4f48;
   --band-line: rgba(35, 48, 44, 0.3);
 
   /* CTA */
-  --cta-bg: #1f7668;
-  --cta-bg-hover: #174f47;
-  --cta-text: #ffffff;
+  /* 淡いミントの面に濃い緑の文字。白文字は載せない */
+  --cta-bg: #a8e6d6;
+  --cta-bg-hover: #8fdcc8;
+  --cta-text: #174f47;
   --cta-secondary-bg: #ffffff;
   --cta-secondary-text: #1f7668;
   --cta-secondary-border: #9bdccd;
@@ -190,6 +199,7 @@ section[id] {
 .btn--primary {
   background: var(--cta-bg);
   color: var(--cta-text);
+  box-shadow: var(--shadow-card);
 }
 
 .btn--primary:hover {

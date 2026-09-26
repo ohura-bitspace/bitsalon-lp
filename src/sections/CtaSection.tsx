@@ -1,4 +1,5 @@
 import { trackEvent } from '../analytics';
+import Phrases from '../components/Phrases';
 import './CtaSection.css';
 
 export default function CtaSection() {
@@ -6,9 +7,13 @@ export default function CtaSection() {
     <section id="contact" className="section">
       <div className="container cta">
         <div className="cta__panel">
-          <h2 className="cta__title">まずは、話を聞いてみませんか</h2>
+          <h2 className="cta__title">
+            <Phrases>まずは、|話を聞いてみませんか</Phrases>
+          </h2>
           <p className="cta__lead">
-            実際の画面をご覧いただきながら、サロンの運用に合うかをご説明します。導入をお決めになっていなくても構いません。
+            <Phrases>
+              実際の画面を|ご覧いただきながら、|サロンの運用に|合うかを|ご説明します。|導入を|お決めになっていなくても|構いません。
+            </Phrases>
           </p>
           <div className="cta__actions">
             <a

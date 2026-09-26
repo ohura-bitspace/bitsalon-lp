@@ -1,3 +1,4 @@
+import Phrases from '../components/Phrases';
 import './FlowBand.css';
 
 const steps = [
@@ -11,8 +12,12 @@ export default function FlowBand() {
     <section className="flow">
       <div className="container flow__inner">
         <h2 className="flow__title">
-          <span>お客様には、いつものLINE。</span>
-          <span>サロンには、見やすい予約表。</span>
+          <span>
+            <Phrases>お客様には、|いつものLINE。</Phrases>
+          </span>
+          <span>
+            <Phrases>サロンには、|見やすい予約表。</Phrases>
+          </span>
         </h2>
         <ol className="flow__steps">
           {steps.map((step) => (
