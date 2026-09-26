@@ -4,21 +4,20 @@
   align-items: center;
   gap: var(--space-5);
   padding: var(--space-8);
-  background: var(--primary);
+  background: var(--soft);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-float);
-  color: var(--cta-text);
+  color: var(--ink);
   text-align: center;
 }
 
 .cta__title {
-  color: var(--cta-text);
+  color: var(--ink);
   font-family: var(--font-heading);
   font-size: clamp(1.625rem, 1.25rem + 1.6vw, 2.5rem);
 }
 
 .cta__lead {
-  color: var(--cta-text);
+  color: var(--ink);
 }
 
 .cta__actions {
@@ -28,17 +27,18 @@
   gap: var(--space-4);
 }
 
+/* パネル自体がミントなので、ボタンは白地にして沈まないようにする */
 .cta__panel .btn--primary {
   background: var(--surface);
-  color: var(--primary);
-  border-color: var(--surface);
+  color: var(--primary-dark);
+  border-color: var(--cta-secondary-border);
 }
 
 .cta__panel .btn--primary:hover,
 .cta__panel .btn--secondary:hover {
-  background: var(--mint-light);
-  color: var(--ink);
-  border-color: var(--mint-light);
+  background: var(--cta-bg);
+  color: var(--cta-text);
+  border-color: var(--cta-bg);
 }
 
 @media (max-width: 640px) {

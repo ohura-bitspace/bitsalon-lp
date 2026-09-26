@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { formatAmount, smallSalonPlans } from '../data/plans';
+import Phrases from '../components/Phrases';
 import './Hero.css';
 
 /* 価格の出どころは plans.ts に一本化する。ここでは最安プランの月額を「〜から」で見せる */
@@ -18,17 +19,17 @@ export default function Hero() {
         </div>
         <div className="hero__aside">
           <p className="hero__lead">
-            LINEから入った予約を、
+            <Phrases>LINEから入った予約を、</Phrases>
             <br />
-            見やすい予約表へ。
+            <Phrases>見やすい予約表へ。</Phrases>
             <br />
-            カルテも来店履歴も、ひとつに。
+            <Phrases>カルテも|来店履歴も、|ひとつに。</Phrases>
           </p>
           <Link className="btn btn--primary hero__cta" to="/#contact">
             画面を見ながら相談する
           </Link>
           <p className="hero__note">
-            小規模サロン向け 予約・顧客管理アプリ／月額{lowestAmount}円（税別）から・初期費用別途
+            <Phrases>{`小規模サロン向け 予約・顧客管理アプリ／|月額${lowestAmount}円（税別）から・|初期費用別途`}</Phrases>
           </p>
         </div>
       </div>

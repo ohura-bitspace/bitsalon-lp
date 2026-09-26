@@ -1,6 +1,6 @@
 /*
- * ミントの帯。白文字は --mint 上で 1.62:1 しかないため、文字は --ink / --band-muted を使う。
- * --ink on --band-bg = 8.45:1、--band-muted on --band-bg = 5.41:1 でいずれも AA を満たす。
+ * 淡いミントの帯。白文字は載せず、文字は --ink / --band-muted を使う。
+ * --ink on --band-bg = 11.67:1、--band-muted on --band-bg = 7.47:1 でいずれも AA を満たす。
  */
 .flow {
   background: var(--band-bg);
