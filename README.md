@@ -67,7 +67,11 @@ VITE_GA_ID=G-XXXXXXXXXX
 ## 参考資料
 
 既存の販促物（サービス資料・チラシ・PDF）は `reference/` にまとめています。ビルド対象ではありません。
-記載価格は旧価格なので、扱いは [reference/README.md](reference/README.md) を参照してください。
+
+予約アプリ（`salon-reserve-mobile` リポジトリ）の `docs/` にも資料があります。
+
+- `docs/guide/`: 店舗向けガイド（管理画面・お客様画面）とチラシの PowerPoint、画面キャプチャ、それらの生成スクリプト
+- `docs/feature-proposals.md`: 機能改善案（2026-07-08 時点の分析）
 
 ## 404 対策
 
