@@ -24,9 +24,37 @@
   padding: var(--space-5);
 }
 
+/*
+ * アイコンの台座。正円だと硬いので、角丸の比率を崩した柔らかい形にする。
+ * カードごとに形が揃いすぎないよう、偶数番目は向きを反転させる。
+ */
 .features__icon {
-  line-height: 1;
-  font-size: 2rem;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 58% 42% 52% 48% / 48% 56% 44% 52%;
+  background: var(--soft);
+  color: var(--primary);
+}
+
+.features__card:nth-child(even) .features__icon {
+  border-radius: 44% 56% 46% 54% / 56% 44% 56% 44%;
+}
+
+.ficon {
+  width: 30px;
+  height: 30px;
+}
+
+/* 線の下に敷く塗り。--solid が差し色のミント、無印は台座から形を浮かせる白。輪郭は上の線で描くので stroke は外す */
+.ficon__fill {
+  fill: var(--surface);
+  stroke: none;
+}
+
+.ficon__fill--solid {
+  fill: var(--mint);
 }
 
 .features__title {
