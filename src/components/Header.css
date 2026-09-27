@@ -57,27 +57,28 @@
 
 @media (max-width: 640px) {
   .header__inner {
-    gap: var(--space-2);
+    gap: var(--space-4);
     justify-content: space-between;
     min-height: var(--header-height);
+    padding-block: var(--space-1);
   }
 
   .header__nav {
-    display: none;
+    gap: var(--space-4);
+  }
+
+  .header__nav-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.875rem;
   }
 
   .header__logo {
     font-size: 1.25rem;
   }
 
-  /* index.css が後に読み込まれるため、.btn の width:100% に勝つよう詳細度を上げる */
   .header .header__cta {
-    width: auto;
-  }
-
-  .header__cta {
-    min-height: 40px;
-    padding-inline: var(--space-4);
-    font-size: 0.9375rem;
+    display: none;
   }
 }

@@ -770,6 +770,31 @@
 }
 
 @media (max-width: 560px) {
+  .mock {
+    padding-top: var(--space-4);
+  }
+
+  .mock__preview-switch {
+    width: min(256px, 100%);
+    margin-bottom: var(--space-2);
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .mock__preview-button {
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .mock__preview-button--active {
+    border-bottom-color: var(--primary);
+    background: transparent;
+    color: var(--primary-dark);
+  }
+
   .mock__frame {
     --mock-hour: 42px;
   }

@@ -67,6 +67,32 @@
 
 @media (max-width: 640px) {
   .hero {
-    padding-block: var(--space-6) var(--space-5);
+    padding-block: var(--space-5) 0;
+  }
+
+  .hero__inner {
+    gap: var(--space-4);
+  }
+
+  .hero__title {
+    font-size: 1.875rem;
+    line-height: 1.28;
+  }
+
+  .hero__lead {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+
+  .hero .hero__cta {
+    min-height: 48px;
+    margin-top: var(--space-4);
+    font-size: 1rem;
+  }
+
+  .hero__note {
+    margin-top: var(--space-2);
+    font-size: 0.8125rem;
+    line-height: 1.5;
   }
 }
